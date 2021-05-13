@@ -1,0 +1,22 @@
+version: "3.01"
+
+services:
+  mysql:
+    image: mysql:${MYSQL_TAG}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${HBNB_MYSQL_DB}
+      MYSQL_USER: ${HBNB_MYSQL_USER}
+      MYSQL_PASSWORD: ${HBNB_MYSQL_PWD}
+    command: --init-file /data/application/setup_mysql_dev.sql
+    volumes:
+        - hbnb-data:/var/lib/mysql
+        - ./setup_mysql_dev.sql:/data/application/setup_mysql_dev.sql
+    restart: unless-stopped
+
+    ports:
+      - 3306:3306
+
+volumes:
+    hbnb-data:
+        driver: local
