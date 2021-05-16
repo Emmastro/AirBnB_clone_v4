@@ -34,11 +34,7 @@ class DBStorage:
         HBNB_ENV = getenv('HBNB_ENV')
         # Fix error with docker raising an error when using localhost
         if HBNB_MYSQL_HOST == "localhost": HBNB_MYSQL_HOST = "127.0.0.1"
-        print('mysql+mysqldb://{}:{}@{}/{}'.
-                                      format(HBNB_MYSQL_USER,
-                                             HBNB_MYSQL_PWD,
-                                             HBNB_MYSQL_HOST,
-                                             HBNB_MYSQL_DB))
+
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(HBNB_MYSQL_USER,
                                              HBNB_MYSQL_PWD,
