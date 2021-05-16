@@ -15,7 +15,8 @@
   <body>
     <header>
       <div class="logo"></div>
-	  <div id="api_status"></div>
+	  <div id="api_status" class="available"></div>
+	</div>
     </header>
     <div class="container">
       <section class="filters">
@@ -43,7 +44,9 @@
 	  <div class="popover">
 	    <ul>
 	      {% for amenity in amenities %}
-	      <li>{{ amenity.name }}</li>
+	      <li>
+	        <input type="checkbox" data-id=":amenity_id" data-name=":amenity_name" style="margin-left:10px">{{ amenity.name }}
+	      </li>
 	      {% endfor %}
 	    </ul>
 	  </div>
